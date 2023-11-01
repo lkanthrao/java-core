@@ -9,10 +9,9 @@ class DBConnecionSingleton {
 
     }
 
-   private DBConnecionSingleton() {
+    private DBConnecionSingleton() {
         System.out.println("In parameterized constructor");
     }
-
 
 
     public static DBConnecionSingleton getDbConnectionStringInstance() {
@@ -29,13 +28,12 @@ class DBConnecionSingleton {
 
 
 }
+
 class AccessSingleTonFromHere {
 
     public static void main(String[] args) {
         AccessSingleTonFromHere accessSingleTonFromHere = new AccessSingleTonFromHere();
         accessSingleTonFromHere.tryToCreateSingleTonObject();
-
-
     }
 
     void tryToCreateSingleTonObject() {

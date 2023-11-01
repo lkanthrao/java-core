@@ -7,22 +7,7 @@ public class SimpleThreads {
         System.out.format("%s: %s%n", threadName, message);
     }
 
-    private static class MessageLoop implements Runnable {
-        public void run() {
-            String importantInfo[] = {"Mares eat oats", "Does eat oats",
-                    "Little lambs eat ivy", "A kid will eat ivy too"};
-            try {
-                for (int i = 0; i < importantInfo.length; i++) {
-                    Thread.sleep(10000);
-                    threadMessage(importantInfo[i]);
-                }
-            } catch (InterruptedException e) {
-                threadMessage("I wasn't done!");
-            }
-        }
-    }
-
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
         long patience = 1000 * 60 * 60;
 
@@ -44,5 +29,19 @@ public class SimpleThreads {
             }
         }
         threadMessage("Finally!");
+    }
+
+    private static class MessageLoop implements Runnable {
+        public void run() {
+            String[] importantInfo = {"Mares eat oats", "Does eat oats", "Little lambs eat ivy", "A kid will eat ivy too"};
+            try {
+                for (int i = 0; i < importantInfo.length; i++) {
+                    Thread.sleep(10000);
+                    threadMessage(importantInfo[i]);
+                }
+            } catch (InterruptedException e) {
+                threadMessage("I wasn't done!");
+            }
+        }
     }
 }

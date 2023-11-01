@@ -63,9 +63,7 @@ public class AnnotHandler {
 //            this.finalVariable2 = 0; this wont woek, once initilized, then cannot reintitilize final cariable
 
 
-
         }
-
 
 
         void acessFinalVariable() {

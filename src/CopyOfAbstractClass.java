@@ -1,6 +1,6 @@
-
-
 public abstract class CopyOfAbstractClass extends AbstractClass {
+
+    private static String a;
 
     public CopyOfAbstractClass(String type, String height) {
         // TODO Auto-generated constructor stub
@@ -24,8 +24,6 @@ public abstract class CopyOfAbstractClass extends AbstractClass {
             }
         };
     }
-
-    private static String a;
 
     public static void main(String[] args) {
 

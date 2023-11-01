@@ -4,6 +4,10 @@ public class SimpleRunnableWithSyncCounter extends Thread {
 
     SynchronizedCounter counter = new SynchronizedCounter();
 
+    public static void main(String[] args) {
+        new Thread(new SimpleRunnableWithSyncCounter()).start();
+    }
+
     @Override
     public void run() {
         try {
@@ -12,11 +16,7 @@ public class SimpleRunnableWithSyncCounter extends Thread {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println("Hello from a thread - " + counter.c);
-    }
-
-    public static void main(String args[]) {
-        new Thread(new SimpleRunnableWithSyncCounter()).start();
+        System.out.println("Hello from a thread - " + SynchronizedCounter.c);
     }
 
 }

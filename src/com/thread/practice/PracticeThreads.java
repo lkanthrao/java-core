@@ -33,16 +33,6 @@ public class PracticeThreads {
 
 class PracticeThreads1 extends Thread {
 
-    @Override
-    public void run() {
-        try {
-            sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Thread executed");
-    }
-
     public static void main(String[] args) throws InterruptedException {
 
         System.out.println("main");
@@ -53,5 +43,15 @@ class PracticeThreads1 extends Thread {
         sleep(20000);
 
         System.out.println("main end");
+    }
+
+    @Override
+    public void run() {
+        try {
+            sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Thread executed");
     }
 }
