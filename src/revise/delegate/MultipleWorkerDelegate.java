@@ -1,7 +1,7 @@
-package revise;
+package revise.delegate;
 
 @FunctionalInterface
-public interface MultipleDelegate extends Delegate {
+public interface MultipleWorkerDelegate extends Delegate {
 
     /* LK: Implementation method in interface should have static or default*/
     public static void executeStatic() {

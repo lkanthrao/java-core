@@ -1,4 +1,4 @@
-package revise;
+package revise.delegate;
 
 public interface Delegate {
     void runDelegatedWork();

@@ -1,7 +1,7 @@
-package revise;
+package revise.delegate;
 
 @FunctionalInterface
-public interface SingleDelegate extends Delegate {
+public interface SingleWorkerDelegate extends Delegate {
 
     static void pushStaticValues() {
 
