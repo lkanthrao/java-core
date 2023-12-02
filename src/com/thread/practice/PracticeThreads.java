@@ -4,7 +4,7 @@ public class PracticeThreads {
 
     public static void main(String[] args) {
 
-//        Runnable runnableThread = new Thread("Thread-Practice");
+        Runnable runnableThread1 = new Thread("Thread-Practice");
 
         System.out.println("Before thread Initialize");
 
