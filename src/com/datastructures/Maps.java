@@ -18,10 +18,13 @@ public class Maps {
 		hMap.put("1", "2");
 		hMap.put(null, null);
 		hMap.put("1", "21");
-		
-		
+		hMap.put("1", "21");
+		hMap.put("1", "21");
+
+
 		ConcurrentHashMap chMpa = new ConcurrentHashMap();
 		chMpa.put("1", "a");
+		chMpa.put("1", "b");
 		chMpa.put("1", "b");
 		try {
 			chMpa.put(null, "c");

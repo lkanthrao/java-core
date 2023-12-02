@@ -1,4 +1,4 @@
-public interface InterfaceClass {
+public interface Interface {
     String a = null;
 
 //	private String aa =null; private not allowed

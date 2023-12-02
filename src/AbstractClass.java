@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class AbstractClass implements InterfaceClass {
+public abstract class AbstractClass implements Interface {
 	
 	List<String> a = new ArrayList<String>();
 	
