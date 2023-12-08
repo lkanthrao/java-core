@@ -57,30 +57,52 @@ public class LetterPayload {
         return Objects.hash(letterId);
     }
 
-    public static class LetterPayloadBuilderNotWorking {
-        private static LetterPayload letterPayload;
+    public static class LetterPayloadBuilder {
+        public int letterId;
 
-        public LetterPayloadBuilderNotWorking newLetterBuilder() {
-            letterPayload = new LetterPayload();
+        public String letterContent;
+
+        public String letterAddress;
+
+        public String deliveryMethod;
+
+        private LetterPayloadBuilder() {
+
+        }
+
+        public static LetterPayloadBuilder newLetterBuilder() {
+            return new LetterPayloadBuilder();
+
+        }
+
+        public LetterPayloadBuilder withAddress(String address) {
+            letterAddress = address;
             return this;
         }
 
-        public LetterPayloadBuilderNotWorking withAddress(String address) {
-            letterPayload.setLetterAddress(address);
+        public LetterPayloadBuilder withDeliveryMethod(String deliveryMethod) {
+            this.deliveryMethod = deliveryMethod;
             return this;
         }
 
-        public LetterPayloadBuilderNotWorking withDeliveryMethod(String deliveryMethod) {
-            letterPayload.setDeliveryMethod(deliveryMethod);
+        public LetterPayloadBuilder withContent(String content) {
+            this.deliveryMethod = content;
             return this;
         }
 
-        public LetterPayloadBuilderNotWorking withContent(String content) {
-            letterPayload.setLetterContent(content);
+        public LetterPayloadBuilder withLetterId(Integer letterId) {
+            this.letterId = letterId;
             return this;
         }
 
         public LetterPayload build() {
+            LetterPayload letterPayload = new LetterPayload();
+
+            letterPayload.setLetterId(letterId);
+            letterPayload.setLetterContent(letterContent);
+            letterPayload.setLetterAddress(letterAddress);
+            letterPayload.setDeliveryMethod(deliveryMethod);
+
             return letterPayload;
         }
     }
