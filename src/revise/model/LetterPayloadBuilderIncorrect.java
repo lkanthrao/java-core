@@ -1,29 +1,29 @@
 package revise.model;
 
-public class LetterPayloadBuilder {
+public class LetterPayloadBuilderIncorrect {
     private static LetterPayload letterPayload;
 
-    public LetterPayloadBuilder newLetterBuilder() {
+    public LetterPayloadBuilderIncorrect newLetterBuilder() {
         letterPayload = new LetterPayload();
         return this;
     }
 
-    public LetterPayloadBuilder withAddress(String address) {
+    public LetterPayloadBuilderIncorrect withAddress(String address) {
         letterPayload.setLetterAddress(address);
         return this;
     }
 
-    public LetterPayloadBuilder withDeliveryMethod(String deliveryMethod) {
+    public LetterPayloadBuilderIncorrect withDeliveryMethod(String deliveryMethod) {
         letterPayload.setDeliveryMethod(deliveryMethod);
         return this;
     }
 
-    public LetterPayloadBuilder withLetterId(Integer letterId) {
+    public LetterPayloadBuilderIncorrect withLetterId(Integer letterId) {
         letterPayload.setLetterId(letterId);
         return this;
     }
 
-    public LetterPayloadBuilder withContent(String content) {
+    public LetterPayloadBuilderIncorrect withContent(String content) {
         letterPayload.setLetterContent(content);
         return this;
     }

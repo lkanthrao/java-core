@@ -1,7 +1,7 @@
 package revise.activities;
 
 import revise.model.LetterPayload;
-import revise.model.LetterPayloadBuilder;
+import revise.model.LetterPayloadBuilderIncorrect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +13,9 @@ public class GenerateLetterPayload {
 
     public static void main(String[] args) {
 
-        LetterPayloadBuilder letterPayloadBuilder = new LetterPayloadBuilder().newLetterBuilder();
+        LetterPayloadBuilderIncorrect letterPayloadBuilderIncorrect = new LetterPayloadBuilderIncorrect().newLetterBuilder();
 
-        LetterPayload letterPayload = letterPayloadBuilder.withAddress("address")
+        LetterPayload letterPayload = letterPayloadBuilderIncorrect.withAddress("address")
                 .withContent("Content")
                 .withDeliveryMethod("Delivery method")
                 .withLetterId(LETTER_ID)
