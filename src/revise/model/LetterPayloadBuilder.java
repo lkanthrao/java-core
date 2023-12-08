@@ -18,6 +18,11 @@ public class LetterPayloadBuilder {
         return this;
     }
 
+    public LetterPayloadBuilder withLetterId(Integer letterId) {
+        letterPayload.setLetterId(letterId);
+        return this;
+    }
+
     public LetterPayloadBuilder withContent(String content) {
         letterPayload.setLetterContent(content);
         return this;
