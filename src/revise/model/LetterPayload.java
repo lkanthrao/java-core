@@ -12,6 +12,24 @@ public class LetterPayload {
 
     private String deliveryMethod;
 
+    private String recipientName;
+
+    public LetterPayload(int letterId, String letterContent, String letterAddress, String deliveryMethod, String recipientName) {
+        this.letterId = letterId;
+        this.letterContent = letterContent;
+        this.letterAddress = letterAddress;
+        this.deliveryMethod = deliveryMethod;
+        this.recipientName = recipientName;
+    }
+
+    public String getRecipientName() {
+        return recipientName;
+    }
+
+    public void setRecipientName(String recipientName) {
+        this.recipientName = recipientName;
+    }
+
     public int getLetterId() {
         return letterId;
     }
@@ -66,6 +84,8 @@ public class LetterPayload {
 
         public String deliveryMethod;
 
+        private String recipientName;
+
         private LetterPayloadBuilder() {
 
         }
@@ -96,12 +116,21 @@ public class LetterPayload {
         }
 
         public LetterPayload build() {
-            LetterPayload letterPayload = new LetterPayload();
+            LetterPayload letterPayload = new LetterPayload(letterId, letterContent, letterAddress, deliveryMethod, recipientName);
 
+            /*
             letterPayload.setLetterId(letterId);
             letterPayload.setLetterContent(letterContent);
             letterPayload.setLetterAddress(letterAddress);
             letterPayload.setDeliveryMethod(deliveryMethod);
+
+            //LK: What's the use of setters in the builder pattern? because the same can be used in main code?
+            So, that's why you do constructor injection and make it mandatory to ensure it' availability depending on
+            various use case.
+
+            //LK:Let's say letter template can be used to construct fax, email, physical letter. There could be different
+            constructor arguments required, hence in builder patter you can handle without breaking actual code.
+            */
 
             return letterPayload;
         }

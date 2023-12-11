@@ -4,7 +4,7 @@ public class LetterPayloadBuilderIncorrect {
     private static LetterPayload letterPayload;
 
     public LetterPayloadBuilderIncorrect newLetterBuilder() {
-        letterPayload = new LetterPayload();
+//        letterPayload = new LetterPayload(); LK: builder pattern failed.
         return this;
     }
 
