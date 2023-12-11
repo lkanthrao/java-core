@@ -2,6 +2,7 @@ package revise.model;
 
 import java.util.Objects;
 
+@SuppressWarnings("unused")
 public class LetterPayload {
 
     private final int letterId;
