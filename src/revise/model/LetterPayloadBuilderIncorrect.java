@@ -1,6 +1,10 @@
 package revise.model;
 
+//LK: @Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE, MODULE})
+//this means the annotation can only be applied to above context - field, method ....
+@SuppressWarnings("unused")
 public class LetterPayloadBuilderIncorrect {
+    @SuppressWarnings("unused")
     private static LetterPayload letterPayload;
 
     public LetterPayloadBuilderIncorrect newLetterBuilder() {
