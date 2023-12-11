@@ -115,6 +115,11 @@ public class LetterPayload {
             return this;
         }
 
+        public LetterPayloadBuilder withRecipientName(String recipientName) {
+            this.recipientName = recipientName;
+            return this;
+        }
+
         public LetterPayload build() {
             LetterPayload letterPayload = new LetterPayload(letterId, letterContent, letterAddress, deliveryMethod, recipientName);
 
