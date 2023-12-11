@@ -26,6 +26,14 @@ public class LetterPayload {
         this.recipientName = recipientName;
     }
 
+    public LetterPayload(LetterPayloadBuilder letterPayloadBuilder) {
+        this.letterId = letterPayloadBuilder.letterId;
+        this.letterContent = letterPayloadBuilder.letterContent;
+        this.letterAddress = letterPayloadBuilder.letterAddress;
+        this.deliveryMethod = letterPayloadBuilder.deliveryMethod;
+        this.recipientName = letterPayloadBuilder.recipientName;
+    }
+
     public String getRecipientName() {
         return recipientName;
     }
@@ -80,6 +88,11 @@ public class LetterPayload {
      *   we have a inner static class named Builder inside our Server class with instance fields
      *   have a factory method to return an new instance of Builder class on every invocation
      *
+     * this pattern should be used only if you need to build different complex immutable objects using the same building process
+     *
+     * The LetterPayload class has six final fields, one constructor taking all the parameters to be set
+     *
+     * if any non mandatory fields are added, you need Telescoping constructors. Hence builder pattern.
      * */
     public static class LetterPayloadBuilder {
         private String letterContent;
@@ -94,7 +107,7 @@ public class LetterPayload {
 
         private String recipientName;
 
-        private LetterPayloadBuilder() {
+        private LetterPayloadBuilder() { //LK: note
 
         }
 
@@ -129,7 +142,20 @@ public class LetterPayload {
         }
 
         public LetterPayload build() {
+            /*
             LetterPayload letterPayload = new LetterPayload(letterId, letterContent, letterAddress, deliveryMethod, recipientName);
+            //LK: it isn't the right way to do builder? why?????
+
+            Alternatively, the Book constructor could take all the parameters corresponding to the Book fields,
+            but this would mean that you must deal again with many parameters to be set in the right order when you
+            call the Book constructor from the Builder’s build method. Mixing up parameters of the same type is one of
+            the potential issues developers try to avoid by implementing the Builder pattern.
+
+            Disadvantage : the potential issues developers try to avoid by implementing the Builder pattern.
+            */
+
+
+            LetterPayload letterPayload = new LetterPayload(this);
 
             /*
             letterPayload.setLetterId(letterId);
