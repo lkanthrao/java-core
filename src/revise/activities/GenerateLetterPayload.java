@@ -1,6 +1,7 @@
 package revise.activities;
 
 import revise.model.LetterPayload;
+import revise.model.LetterPayloadRecord;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,13 @@ public class GenerateLetterPayload {
                 .findFirst();
 
         System.out.println(first.isPresent());
+
+        //LK: refactored to record as part of java14
+        LetterPayloadRecord letterPayloadRecord = LetterPayloadRecord.LetterPayloadBuilder.newLetterBuilder()
+                .withRecipientName("lk").build();
+
+        String letterAddress = letterPayloadRecord.letterAddress();
+        System.out.println(letterAddress);
 
 
     }

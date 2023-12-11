@@ -9,22 +9,22 @@ public class LetterPayloadBuilderIncorrect {
     }
 
     public LetterPayloadBuilderIncorrect withAddress(String address) {
-        letterPayload.setLetterAddress(address);
+//        letterPayload.setLetterAddress(address); //LK: It's now broken, as fields are private and final
         return this;
     }
 
     public LetterPayloadBuilderIncorrect withDeliveryMethod(String deliveryMethod) {
-        letterPayload.setDeliveryMethod(deliveryMethod);
+//        letterPayload.setDeliveryMethod(deliveryMethod); //LK: It's now broken, as fields are private and final
         return this;
     }
 
     public LetterPayloadBuilderIncorrect withLetterId(Integer letterId) {
-        letterPayload.setLetterId(letterId);
+//        letterPayload.setLetterId(letterId); //LK: It's now broken, as fields are private and final
         return this;
     }
 
     public LetterPayloadBuilderIncorrect withContent(String content) {
-        letterPayload.setLetterContent(content);
+//        letterPayload.setLetterContent(content); //LK: It's now broken, as fields are private and final
         return this;
     }
 
