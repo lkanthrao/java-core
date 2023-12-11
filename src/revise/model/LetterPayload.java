@@ -4,15 +4,18 @@ import java.util.Objects;
 
 public class LetterPayload {
 
-    private int letterId;
+    private final int letterId;
 
-    private String letterContent;
+    private final String letterContent;
 
-    private String letterAddress;
+    private final String letterAddress;
 
-    private String deliveryMethod;
+    private final String deliveryMethod;
 
-    private String recipientName;
+    private final String recipientName;
+
+    //LK: All of the above fields should be final. Otherwise, what's the point in creating object of this class
+    // it's properties can be modified anytime. Since it's now final, you can't have setters to it.
 
     public LetterPayload(int letterId, String letterContent, String letterAddress, String deliveryMethod, String recipientName) {
         this.letterId = letterId;
@@ -27,42 +30,31 @@ public class LetterPayload {
     }
 
     public void setRecipientName(String recipientName) {
-        this.recipientName = recipientName;
+//        this.recipientName = recipientName; //LK final fields can have setters, only constructor injection.
     }
 
     public int getLetterId() {
         return letterId;
     }
 
-    public void setLetterId(int letterId) {
-        this.letterId = letterId;
-    }
 
     public String getLetterContent() {
         return letterContent;
     }
 
-    public void setLetterContent(String letterContent) {
-        this.letterContent = letterContent;
-    }
 
     public String getLetterAddress() {
         return letterAddress;
     }
 
-    public void setLetterAddress(String letterAddress) {
-        this.letterAddress = letterAddress;
-    }
 
     public String getDeliveryMethod() {
         return deliveryMethod;
     }
 
-    public void setDeliveryMethod(String deliveryMethod) {
-        this.deliveryMethod = deliveryMethod;
-    }
 
     //LK: Arrays.deepEquals - recursion is used to compare.
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,14 +67,29 @@ public class LetterPayload {
         return Objects.hash(letterId);
     }
 
+
+    /*
+     * //LK: Method chaining is a useful design pattern but however if accessed concurrently,
+     * a thread may observe some fields to contain inconsistent values.
+     *
+     * That's why LetterPayloadBuilderIncorrect would have an issue. To solve this problem,
+     * there is Builder pattern to ensure the thread-safety and atomicity of object creation
+     *
+     * //LK: To solve -
+     *   we have a inner static class named Builder inside our Server class with instance fields
+     *   have a factory method to return an new instance of Builder class on every invocation
+     *
+     * */
     public static class LetterPayloadBuilder {
-        public int letterId;
+        private String letterContent;
 
-        public String letterContent;
+        // public int letterId; //LK: choose the access modifiers with care. Even for private, you can have setters.
 
-        public String letterAddress;
+        private String letterAddress;
 
-        public String deliveryMethod;
+        private String deliveryMethod;
+
+        private int letterId;
 
         private String recipientName;
 
