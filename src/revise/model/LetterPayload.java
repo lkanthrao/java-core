@@ -113,7 +113,7 @@ public class LetterPayload {
         }
 
         public LetterPayloadBuilder withContent(String content) {
-            this.deliveryMethod = content;
+            this.letterContent = content;
             return this;
         }
 
