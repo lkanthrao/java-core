@@ -13,6 +13,7 @@ class TestClass {
     public static void main(String[] args) throws Exception {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedReader br = new BufferedReader(new FileReader("foo.in"));
         String line = br.readLine();
         int sizeOfArray = Integer.parseInt(line);
         String elements = br.readLine();
