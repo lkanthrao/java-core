@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 /* IMPORTANT: class must not be public. */
 
 /*
@@ -12,22 +9,31 @@ import java.io.InputStreamReader;
 class TestClass {
     public static void main(String[] args) throws Exception {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedReader br = new BufferedReader(new FileReader("foo.in"));
-        String line = br.readLine();
-        int sizeOfArray = Integer.parseInt(line);
-        String elements = br.readLine();
-        String[] arrayElements = elements.split(" ");
-        boolean noTriplet = false;
+        long reverse = 0;
+        int copy = x;
+        if (x < 0) {
+            copy = -1 * x;
 
-        for (int i = 0; i < sizeOfArray; i++)
-            for (int j = i + 1; j < sizeOfArray; j++)
-                for (int k = j + 1; k < sizeOfArray; k++)
-                    if (Integer.parseInt(arrayElements[j]) < Integer.parseInt(arrayElements[k]) && Integer.parseInt(arrayElements[i]) < Integer.parseInt(arrayElements[j])) {
-                        noTriplet = true;
-                        System.out.println(i + " " + j + " " + k);
-                    }
+        }
+        while (copy > 0) {
 
-        if (!noTriplet) System.out.println(-1);
+            int r = copy % 10;
+
+            reverse = (reverse * 10) + r;
+            copy = copy / 10;
+
+        }
+
+        if (reverse > Integer.MAX_VALUE || reverse < Integer.MIN_VALUE) {
+            return 0;
+        }
+        if (x < 0) {
+            return (int) reverse * -1;
+        }
+
+
+        return (int) reverse;
+
+
     }
 }
