@@ -7,9 +7,10 @@ import java.io.InputStreamReader;
 */
 
 class TestClass {
-    public static void main(String[] args) throws Exception {
+    public static int abc(String[] args) throws Exception {
 
         long reverse = 0;
+        int x = 0;
         int copy = x;
         if (x < 0) {
             copy = -1 * x;
